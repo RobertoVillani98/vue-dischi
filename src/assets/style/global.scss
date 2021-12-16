@@ -12,3 +12,11 @@ body{
     padding: 0;
     box-sizing: border-box;
 }
+
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 150px;
+}
