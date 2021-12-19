@@ -5,6 +5,7 @@
       name="Select Genre"
       @change="$emit('change', selectVal)"
     >
+      <option></option>
       <option>Rock</option>
       <option>Pop</option>
       <option>Metal</option>
