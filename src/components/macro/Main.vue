@@ -1,7 +1,8 @@
 <template>
   <main>
+    <SelectGenre @change="searchGenres" />
     <div class="disk-list row">
-      <DiskCard v-for="(disk, index) in disks" :key="index" :info="disk" />
+      <DiskCard v-for="(disk, index) in filtered" :key="index" :info="disk" />
     </div>
   </main>
 </template>
@@ -9,15 +10,18 @@
 <script>
 import axios from "axios";
 import DiskCard from "../parts/DiskCard.vue";
+import SelectGenre from "../parts/SelectGenre.vue";
 
 export default {
   name: "Main",
   components: {
     DiskCard,
+    SelectGenre,
   },
   data() {
     return {
-      disks: null,
+      disks: [],
+      selectVal: "",
     };
   },
   created() {
@@ -32,6 +36,18 @@ export default {
         // handle error
         console.log(error);
       });
+  },
+  methods: {
+    searchGenres(payload) {
+      this.selectVal = payload;
+    },
+  },
+  computed: {
+    filtered() {
+      return this.disks.filter((elm) => {
+        return elm.genre.includes(this.selectVal);
+      });
+    },
   },
 };
 </script>
