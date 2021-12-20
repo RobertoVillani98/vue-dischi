@@ -5,11 +5,11 @@
       name="Select Genre"
       @change="$emit('change', selectVal)"
     >
-      <option></option>
-      <option>Rock</option>
-      <option>Pop</option>
-      <option>Metal</option>
-      <option>Jazz</option>
+      <option value="">Seleziona un genere</option>
+      <option value="Rock">Rock</option>
+      <option value="Pop">Pop</option>
+      <option value="Metal">Metal</option>
+      <option value="Jazz">Jazz</option>
     </select>
     <button @click.prevent="$emit('change', '')">View All</button>
   </div>
